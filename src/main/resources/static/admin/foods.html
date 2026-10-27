@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Foods - Foodie Express</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">🍔 Foodie Express</a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/menu.html" class="nav-link">Menu</a>
+                <a href="/admin/dashboard.html" class="nav-link">Dashboard</a>
+                <a href="/admin/foods.html" class="nav-link active">Foods</a>
+                <a href="/admin/categories.html" class="nav-link">Categories</a>
+                <a href="/admin/orders.html" class="nav-link">Orders</a>
+                <div id="nav-auth" style="display: flex; align-items: center; gap: 1rem;"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 2rem; padding-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1 style="font-size: 2rem;">Manage Foods</h1>
+            <button onclick="openAddModal()" class="btn">Add Food</button>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Available</th>
+                        <th>Active</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="foodsTable"></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div id="foodModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="card" style="max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto; padding: 2rem; position: relative;">
+            <button onclick="closeModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            <h2 id="modalTitle" style="margin-bottom: 1.5rem;">Add Food</h2>
+            <form id="foodForm" novalidate>
+                <input type="hidden" id="foodId">
+                <div class="form-group">
+                    <label for="foodName" class="form-label">Name *</label>
+                    <input type="text" id="foodName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="foodDesc" class="form-label">Description</label>
+                    <textarea id="foodDesc" class="form-input form-textarea"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="foodPrice" class="form-label">Price *</label>
+                    <input type="number" step="0.01" id="foodPrice" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="foodImage" class="form-label">Image URL</label>
+                    <input type="text" id="foodImage" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="foodCategory" class="form-label">Category *</label>
+                    <select id="foodCategory" class="form-input" required></select>
+                </div>
+                <div class="form-group">
+                    <label><input type="checkbox" id="foodAvailable" checked> Available</label>
+                </div>
+                <div class="form-group">
+                    <label><input type="checkbox" id="foodActive" checked> Active</label>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin-foods.js"></script>
+</body>
+</html>

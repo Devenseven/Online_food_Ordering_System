@@ -1,0 +1,14 @@
+target/
+.env
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*.log
+.classpath
+.project
+.settings/
+bin/
+build/
+docs/screenshots/*
+!docs/screenshots/.gitkeep

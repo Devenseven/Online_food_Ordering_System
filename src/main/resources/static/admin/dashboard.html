@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Foodie Express</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">🍔 Foodie Express</a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/menu.html" class="nav-link">Menu</a>
+                <a href="/admin/dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="/admin/foods.html" class="nav-link">Foods</a>
+                <a href="/admin/categories.html" class="nav-link">Categories</a>
+                <a href="/admin/orders.html" class="nav-link">Orders</a>
+                <div id="nav-auth" style="display: flex; align-items: center; gap: 1rem;"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 2rem; padding-bottom: 2rem;">
+        <h1 style="margin-bottom: 2rem; font-size: 2rem;">Admin Dashboard</h1>
+        
+        <div id="loading" style="text-align: center; padding: 2rem;">Loading...</div>
+        <div id="dashboardContent" style="display: none;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="card" style="padding: 1.5rem; text-align: center;">
+                    <h3 style="color: var(--text-light); margin-bottom: 0.5rem;">Total Orders</h3>
+                    <p style="font-size: 2rem; font-weight: 700; color: var(--primary);" id="totalOrders">0</p>
+                </div>
+                <div class="card" style="padding: 1.5rem; text-align: center;">
+                    <h3 style="color: var(--text-light); margin-bottom: 0.5rem;">Active Foods</h3>
+                    <p style="font-size: 2rem; font-weight: 700; color: var(--success);" id="activeFoods">0</p>
+                </div>
+                <div class="card" style="padding: 1.5rem; text-align: center;">
+                    <h3 style="color: var(--text-light); margin-bottom: 0.5rem;">Total Sales (Delivered)</h3>
+                    <p style="font-size: 2rem; font-weight: 700; color: var(--success);" id="totalSales">$0.00</p>
+                </div>
+            </div>
+            
+            <div class="card" style="padding: 1.5rem;">
+                <h2 style="margin-bottom: 1rem;">Orders by Status</h2>
+                <div id="ordersByStatus" style="display: flex; flex-wrap: wrap; gap: 1rem;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Foodie Express</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">🍔 Foodie Express</a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/menu.html" class="nav-link">Menu</a>
+                <a href="/cart.html" class="nav-link nav-cart">
+                    Cart
+                    <span id="cart-badge" class="cart-badge" style="display: none;">0</span>
+                </a>
+                <div id="nav-auth" style="display: flex; align-items: center; gap: 1rem;"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="max-width: 600px; padding-top: 3rem; padding-bottom: 3rem;">
+        <div class="card" style="padding: 2rem; text-align: center;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+            <h1 style="color: var(--success); margin-bottom: 1rem;">Order Placed Successfully!</h1>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">Thank you for your order</p>
+            <div style="background: var(--bg-cream); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Order ID:</strong> <span id="orderId"></span></p>
+                <p style="margin-bottom: 0.5rem;"><strong>Total Amount:</strong> <span id="orderTotal" style="color: var(--primary); font-weight: 700;"></span></p>
+                <p><strong>Status:</strong> <span id="orderStatus" class="badge"></span></p>
+            </div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="/orders.html" class="btn">View My Orders</a>
+                <a href="/menu.html" class="btn btn-secondary">Order Again</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/order-confirmation.js"></script>
+</body>
+</html>

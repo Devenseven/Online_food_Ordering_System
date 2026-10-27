@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Foodie Express</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">🍔 Foodie Express</a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/menu.html" class="nav-link">Menu</a>
+                <a href="/cart.html" class="nav-link nav-cart">
+                    Cart
+                    <span id="cart-badge" class="cart-badge" style="display: none;">0</span>
+                </a>
+                <div id="nav-auth" style="display: flex; align-items: center; gap: 1rem;"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 2rem; padding-bottom: 2rem;">
+        <section style="text-align: center; padding: 3rem 1rem; background: linear-gradient(135deg, var(--bg-cream) 0%, var(--white) 100%); border-radius: 16px; margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--text);">Delicious Food Delivered Fast</h1>
+            <p style="font-size: 1.25rem; color: var(--text-light); margin-bottom: 2rem;">Order your favorite meals from our menu</p>
+            <a href="/menu.html" class="btn" style="font-size: 1.1rem; padding: 1rem 2rem;">Browse Menu</a>
+        </section>
+
+        <section style="margin-bottom: 3rem;">
+            <h2 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Browse by Category</h2>
+            <div id="categories" style="display: flex; gap: 0.75rem; flex-wrap: wrap;"></div>
+        </section>
+
+        <section>
+            <h2 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Popular Items</h2>
+            <div id="popular-items" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;"></div>
+        </section>
+    </div>
+
+    <footer style="background: var(--white); border-top: 2px solid var(--border); padding: 2rem 0; margin-top: 3rem; text-align: center; color: var(--text-light);">
+        <div class="container">
+            <p>&copy; 2026 Foodie Express. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>

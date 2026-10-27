@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Categories - Foodie Express</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">🍔 Foodie Express</a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/menu.html" class="nav-link">Menu</a>
+                <a href="/admin/dashboard.html" class="nav-link">Dashboard</a>
+                <a href="/admin/foods.html" class="nav-link">Foods</a>
+                <a href="/admin/categories.html" class="nav-link active">Categories</a>
+                <a href="/admin/orders.html" class="nav-link">Orders</a>
+                <div id="nav-auth" style="display: flex; align-items: center; gap: 1rem;"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 2rem; padding-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1 style="font-size: 2rem;">Manage Categories</h1>
+            <button onclick="openAddModal()" class="btn">Add Category</button>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Active</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="categoriesTable"></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div id="categoryModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="card" style="max-width: 500px; width: 90%; padding: 2rem; position: relative;">
+            <button onclick="closeModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            <h2 id="modalTitle" style="margin-bottom: 1.5rem;">Add Category</h2>
+            <form id="categoryForm" novalidate>
+                <input type="hidden" id="categoryId">
+                <div class="form-group">
+                    <label for="categoryName" class="form-label">Name *</label>
+                    <input type="text" id="categoryName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="categoryDesc" class="form-label">Description</label>
+                    <textarea id="categoryDesc" class="form-input form-textarea"></textarea>
+                </div>
+                <div class="form-group">
+                    <label><input type="checkbox" id="categoryActive" checked> Active</label>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin-categories.js"></script>
+</body>
+</html>
